@@ -21,8 +21,12 @@ body {
 .container {
     max-width: 800px;
     margin: auto;
+    background-color: aliceblue;
 }
 
+body{
+    background-color: antiquewhite;
+}
 .btn-primary {
     background-color: #007bff;
     border: none;

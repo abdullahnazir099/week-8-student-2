@@ -1,0 +1,30 @@
+.navbar {
+    background-color: #007bff;
+    border-radius: 10px;
+}
+
+.navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+  background-color: aliceblue;
+}
+.btn{
+    align-items: center;
+    text-align: center;
+    background-color: aqua;
+
+}
+
+body{
+    background-color: antiquewhite;
+}
