@@ -1,31 +1,31 @@
 
-  function showBooks() {
-    fetch('/.netlify/functions/allBooks')
-      .then(response => response.json())
-      .then(books => {
-        const booksList = document.getElementById('books-list');
-        booksList.innerHTML = '';
-        books.forEach(book => {
-          const row = `
-            <tr>
-              <td>${book.id}</td>
-              <td>${book.title}</td>
-              <td>${book.author}</td>
-              <td>${book.isbn}</td>
-              <td>${book.published_year}</td>
-              <td>${book.genre}</td>
-              <td>
-              <button class="btn btn-sm btn-info" onclick="openEditModal(${book.id})">Edit</button>
-              <button class="btn btn-sm btn-danger" onclick="confirmDelete(${book.id})">Delete</button>
+  // function showBooks() {
+  //   fetch('/.netlify/functions/allBooks')
+  //     .then(response => response.json())
+  //     .then(books => {
+  //       const booksList = document.getElementById('books-list');
+  //       booksList.innerHTML = '';
+  //       books.forEach(book => {
+  //         const row = `
+  //           <tr>
+  //             <td>${book.id}</td>
+  //             <td>${book.title}</td>
+  //             <td>${book.author}</td>
+  //             <td>${book.isbn}</td>
+  //             <td>${book.published_year}</td>
+  //             <td>${book.genre}</td>
+  //             <td>
+  //             <button class="btn btn-sm btn-info" onclick="openEditModal(${book.id})">Edit</button>
+  //             <button class="btn btn-sm btn-danger" onclick="confirmDelete(${book.id})">Delete</button>
               
-            </td>
-          </tr>
-        `;
-        booksList.innerHTML += row;
-      });
-    })
-    .catch(error => console.error('Error:', error));
-  }
+  //           </td>
+  //         </tr>
+  //       `;
+  //       booksList.innerHTML += row;
+  //     });
+  //   })
+  //   .catch(error => console.error('Error:', error));
+  // }
   function showBooks() {
     fetch('/.netlify/functions/allBooks')
       .then(response => response.json())
@@ -69,6 +69,7 @@
       })
       .catch(error => console.error('Error fetching books:', error));
   }
+  document.addEventListener('DOMContentLoaded', showBooks);
   
  
   function addBook() {
