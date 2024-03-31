@@ -26,50 +26,78 @@
   //   })
   //   .catch(error => console.error('Error:', error));
   // }
-  function showBooks() {
-    fetch('/.netlify/functions/allBooks')
-      .then(response => response.json())
-      .then(books => {
-        const booksTable = document.getElementById('booksTable');
-        let tableHTML = `
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Author</th>
-              <th>ISBN</th>
-              <th>Published Year</th>
-              <th>Genre</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-        `;
+  // function showBooks() {
+  //   fetch('/.netlify/functions/allBooks')
+  //     .then(response => response.json())
+  //     .then(books => {
+  //       const booksTable = document.getElementById('booksTable');
+  //       let tableHTML = `
+  //         <thead>
+  //           <tr>
+  //             <th>Title</th>
+  //             <th>Author</th>
+  //             <th>ISBN</th>
+  //             <th>Published Year</th>
+  //             <th>Genre</th>
+  //             <th>Actions</th>
+  //           </tr>
+  //         </thead>
+  //         <tbody>
+  //       `;
   
-        books.forEach(book => {
-          tableHTML += `
-            <tr>
-              <td>${book.title}</td>
-              <td>${book.author}</td>
-              <td>${book.isbn}</td>
-              <td>${book.published_year}</td>
-              <td>${book.genre}</td>
-              <td>
-                <button class="btn btn-primary" onclick="openEditModal(${book.id})">Edit</button>
-                <button class="btn btn-danger" onclick="confirmDelete(${book.id})">Delete</button>
-              </td>
-            </tr>
-          `;
-        });
+  //       books.forEach(book => {
+  //         tableHTML += `
+  //           <tr>
+  //             <td>${book.title}</td>
+  //             <td>${book.author}</td>
+  //             <td>${book.isbn}</td>
+  //             <td>${book.published_year}</td>
+  //             <td>${book.genre}</td>
+  //             <td>
+  //               <button class="btn btn-primary" onclick="openEditModal(${book.id})">Edit</button>
+  //               <button class="btn btn-danger" onclick="confirmDelete(${book.id})">Delete</button>
+  //             </td>
+  //           </tr>
+  //         `;
+  //       });
   
-        tableHTML += `
-          </tbody>
-        `;
+  //       tableHTML += `
+  //         </tbody>
+  //       `;
   
-        booksTable.innerHTML = tableHTML;
-      })
-      .catch(error => console.error('Error fetching books:', error));
-  }
-  document.addEventListener('DOMContentLoaded', showBooks);
+  //       booksTable.innerHTML = tableHTML;
+  //     })
+  //     .catch(error => console.error('Error fetching books:', error));
+  // }
+  // document.addEventListener('DOMContentLoaded', showBooks);
+  
+function showBooks() {
+  fetch('/.netlify/functions/allBooks')
+    .then(response => response.json())
+    .then(books => {
+      const booksContainer = document.getElementById('books-container');
+      const bookList = books.map(book => `
+       
+        <tr>
+          <td>${book.title}</td>
+          <td>${book.author}</td>
+          <td>${book.isbn}</td>
+          <td>${book.published_year}</td>
+          <td>${book.genre}</td>
+          <td>
+         
+            <button class="btn btn-sm btn-info" onclick="openEditModal(${book.id})">Edit</button>
+                 <button class="btn btn-sm btn-danger" onclick="confirmDelete(${book.id})">Delete</button>
+          </td>
+        </tr>
+      `).join('');
+      booksContainer.innerHTML = `<table>${bookList}</table>`;
+    })
+    .catch(error => console.error('Error fetching books:', error));
+}
+
+
+document.addEventListener('DOMContentLoaded', showBooks);
   
  
   function addBook() {
