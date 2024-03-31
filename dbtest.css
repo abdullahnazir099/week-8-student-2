@@ -28,3 +28,28 @@
 body{
     background-color: antiquewhite;
 }
+
+
+
+#booksTable {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  #booksTable th, #booksTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  #booksTable th {
+    background-color: #f2f2f2;
+  }
+  
+  #booksTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  #booksTable tr:hover {
+    background-color: #ddd;
+  }
+  
