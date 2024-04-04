@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     await connection.end();
 
     return {
-      statusCode: 200,
+      statusCode: 500,
       body: JSON.stringify(books),
     };
   } catch (error) {
