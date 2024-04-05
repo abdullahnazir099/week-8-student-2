@@ -9,7 +9,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME
     });
 
-    const [books] = await connection.query('SELECT * FROM safkc');
+    const [books] = await connection.query('SELECT * FROM pramal1');
     await connection.end();
 
     return {

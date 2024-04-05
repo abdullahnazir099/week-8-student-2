@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME
     });
 
-    const sql = 'DELETE FROM safkc WHERE id = ?';
+    const sql = 'DELETE FROM pramal1 WHERE id = ?';
     await connection.execute(sql, [id]);
     await connection.end();
 

@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME
     });
 
-    const [book] = await connection.query('SELECT * FROM safkc WHERE id = ?', [id]);
+    const [book] = await connection.query('SELECT * FROM pramal1 WHERE id = ?', [id]);
     await connection.end();
 
     if (book.length === 0) {

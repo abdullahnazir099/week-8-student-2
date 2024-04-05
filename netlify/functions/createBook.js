@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME
     });
 
-    const sql = 'INSERT INTO safkc (title, author, isbn, published_year, genre) VALUES (?, ?, ?, ?, ?)';
+    const sql = 'INSERT INTO pramal1 (title, author, isbn, published_year, genre) VALUES (?, ?, ?, ?, ?)';
     await connection.execute(sql, [title, author, isbn, published_year, genre]);
     await connection.end();
 

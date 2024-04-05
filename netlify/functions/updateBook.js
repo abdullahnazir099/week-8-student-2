@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
       database: process.env.DB_NAME
     });
 
-    const sql = 'UPDATE safkc SET title = ?, author = ?, isbn = ?, published_year = ?, genre = ? WHERE id = ?';
+    const sql = 'UPDATE pramal1 SET title = ?, author = ?, isbn = ?, published_year = ?, genre = ? WHERE id = ?';
     await connection.execute(sql, [title, author, isbn, published_year, genre, id]);
     await connection.end();
 
